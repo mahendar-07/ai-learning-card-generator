@@ -107,6 +107,7 @@ Browser                            Server
 
 ## Failure & Retry Scenario
 
+<<<<<<< HEAD
 Use the **Mode** switch below the input to test error recovery. It matches the two modes the task asks for — **Success Mode** and **Failure Mode** — and picking **Failure Mode** reveals three nested cases so the retry flow can be exercised under different conditions:
 
 | Mode | Case | Behaviour |
@@ -115,6 +116,16 @@ Use the **Mode** switch below the input to test error recovery. It matches the t
 | **Failure Mode** | Case 1 | All 3 cards fail |
 | **Failure Mode** | Case 2 | One random card fails |
 | **Failure Mode** | Case 3 | Two random cards fail |
+=======
+Use the **Failure Scenario** selector below the input to test error recovery:
+
+| Mode | Behaviour |
+|---|---|
+| **Success** (default) | All 3 cards generate normally |
+| **Case 1** | All 3 cards fail |
+| **Case 2** | One random card fails |
+| **Case 3** | Two random cards fail |
+>>>>>>> 8fe032b9a01c9c3498637953acc51e4175106b7f
 
 Failed cards show an error state with a **Retry** button. Clicking Retry sends `{ type: "retry", cardIndex }` over the same WebSocket connection. The server re-generates only that card (without a simulated failure) and sends it back. When all failed cards recover, a `complete` message is sent and a success banner appears.
 

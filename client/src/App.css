@@ -271,6 +271,7 @@ body {
   opacity: 1;
 }
 
+<<<<<<< HEAD
 .failure-scenario__subgroup {
   display: flex;
   flex-wrap: wrap;
@@ -302,6 +303,8 @@ body {
   margin-left: 6px;
 }
 
+=======
+>>>>>>> 8fe032b9a01c9c3498637953acc51e4175106b7f
 /* ---------- Card row ---------- */
 
 .card-row {
@@ -523,6 +526,10 @@ body {
   animation: fade-in-up 0.3s ease both;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8fe032b9a01c9c3498637953acc51e4175106b7f
 .card__footer {
   display: flex;
   gap: 10px;
