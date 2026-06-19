@@ -40,7 +40,7 @@ Open **http://localhost:5173** in your browser.
 | Variable | Required | Default | Description |
 |---|---|---|---|
 | `GEMINI_API_KEY` | Yes (for real cards) | — | Google Gemini API key |
-| `GEMINI_MODEL` | No | `gemini-1.5-flash` | Override the Gemini model |
+| `GEMINI_MODEL` | No | `gemini-2.5-flash` | Override the Gemini model |
 | `PORT` | No | `4000` | HTTP/WS server port |
 | `CLIENT_ORIGIN` | No | `http://localhost:5173` | CORS allowed origin |
 
@@ -107,7 +107,6 @@ Browser                            Server
 
 ## Failure & Retry Scenario
 
-<<<<<<< HEAD
 Use the **Mode** switch below the input to test error recovery. It matches the two modes the task asks for — **Success Mode** and **Failure Mode** — and picking **Failure Mode** reveals three nested cases so the retry flow can be exercised under different conditions:
 
 | Mode | Case | Behaviour |
@@ -116,16 +115,6 @@ Use the **Mode** switch below the input to test error recovery. It matches the t
 | **Failure Mode** | Case 1 | All 3 cards fail |
 | **Failure Mode** | Case 2 | One random card fails |
 | **Failure Mode** | Case 3 | Two random cards fail |
-=======
-Use the **Failure Scenario** selector below the input to test error recovery:
-
-| Mode | Behaviour |
-|---|---|
-| **Success** (default) | All 3 cards generate normally |
-| **Case 1** | All 3 cards fail |
-| **Case 2** | One random card fails |
-| **Case 3** | Two random cards fail |
->>>>>>> 8fe032b9a01c9c3498637953acc51e4175106b7f
 
 Failed cards show an error state with a **Retry** button. Clicking Retry sends `{ type: "retry", cardIndex }` over the same WebSocket connection. The server re-generates only that card (without a simulated failure) and sends it back. When all failed cards recover, a `complete` message is sent and a success banner appears.
 
@@ -192,7 +181,7 @@ ai-learning-cards/
 
 ## Assumptions & Extra Features
 
-- **Google Gemini** is used as the AI backend (via `@google/generative-ai`). The model defaults to `gemini-1.5-flash` but is configurable via `GEMINI_MODEL`.
+- **Google Gemini** is used as the AI backend (via `@google/generative-ai`). The model defaults to `gemini-2.5-flash` but is configurable via `GEMINI_MODEL`.
 - **Mock fallback**: if no API key is set, mock cards are generated so the WebSocket flow, loading states, failure scenarios, and stop/retry can all be demoed.
 - **Stop mid-generation**: any in-progress generation can be cancelled; already-delivered cards remain visible.
 - **Rate limit UX**: quota errors get a dedicated 24-hour wait banner rather than a misleading retry button.
